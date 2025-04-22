@@ -1,0 +1,228 @@
+@font-face {
+    font-family: 'ProductDesign';
+    src: url('fonts/Celestia.otf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    /* background-color: #0a192f; */
+    background-image: url(images/tic-tac-toe-1954446_1280.jpg);
+    background-image: linear-gradient(rgba(53, 102, 175, 0.8), rgba(19, 57, 114, 0.8)), url(images/tic-tac-toe-1954446_1280.jpg);
+    /* Fallback for older browsers */
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    color: #e6f1ff;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgba(10, 25, 47, 0.85);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    border: 1px solid rgba(100, 149, 237, 0.2);
+}
+
+h1 {
+    font-family: 'ProductDesign', sans-serif;
+    text-align: center;
+    color:rgb(255, 238, 5);
+    margin-bottom: 30px;
+    font-size: 3.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.game-setup {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.player-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.player-input label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #ccd6f6;
+}
+
+.player-input input {
+    padding: 10px;
+    background-color: rgba(100, 149, 237, 0.1);
+    border: 1px solid rgba(100, 149, 237, 0.3);
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #e6f1ff;
+}
+
+.player-input input::placeholder {
+    color: rgba(230, 241, 255, 0.5);
+}
+
+button {
+    padding: 12px 20px;
+    background-color: rgba(100, 149, 237, 0.9);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #64ffda;
+    color: #0a192f;
+    transform: translateY(-2px);
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.player-display {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(16, 36, 69, 0.7);
+    border-radius: 5px;
+    border: 1px solid rgba(100, 149, 237, 0.3);
+}
+
+.player.active {
+    font-weight: bold;
+    color: #64ffda;
+}
+
+.gameboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1/1;
+}
+
+.cell {
+    background-color: rgba(16, 36, 69, 0.7);
+    border: 2px solid rgba(100, 149, 237, 0.5);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    aspect-ratio: 1/1;
+}
+
+.cell:hover {
+    background-color: rgba(100, 149, 237, 0.2);
+    transform: scale(1.03);
+}
+
+.cell.x {
+    color:#fde401;
+}
+
+.cell.o {
+    color: #64ffda;
+}
+
+.game-status {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    min-height: 30px;
+    color: rgb(230, 230, 21);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+        background-attachment: scroll;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .cell {
+        font-size: 2.5rem;
+    }
+}
+
+/* Animation for winning cells */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.winning-cell {
+    animation: pulse 1s infinite;
+    background-color: rgba(100, 255, 218, 0.2);
+    border-color: #64ffda;
+}
+
+
+/* Add this at the end of your CSS file */
+.image-credit {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(10, 25, 47, 0.7);
+    font-size: 0.8rem;
+    color: #ccd6f6;
+    z-index: 100;
+    backdrop-filter: blur(3px);
+}
+
+.image-credit a {
+    color: #64ffda;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.image-credit a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.container {
+    padding-bottom: 50px;
+}
